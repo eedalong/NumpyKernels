@@ -26,7 +26,7 @@ class CustomBuildExt(_build_ext):
         import numpy
         self.include_dirs.append(numpy.get_include())
 
-compile_extra_args = ["-std=c++11", "-O0", "-fopenmp"]
+compile_extra_args = ["-std=c++11", "-fopenmp"]
 link_extra_args = ["-fopenmp"]
 
 if sys.platform == "darwin":
@@ -63,8 +63,8 @@ setup(
     cmdclass={'build_ext': CustomBuildExt},
     packages=find_packages(),
     include_package_data=False,
-    #ext_modules=cythonize(extensions),
-    ext_modules=extensions,
+    ext_modules=cythonize(extensions),
+    #ext_modules=extensions,
     classifiers=[
         'Intended Audience :: Developers',
         'License :: OSI Approved :: Apache Software License',

@@ -13,7 +13,14 @@ def test_array_slice():
     start_time = time.time()
     res = input_array[indices]
     print(f"numpy consumed {time.time() - start_time}, res shape {res.shape}")
+    
+    import torch
+    array_tensor = torch.Tensor(input_array)
+    indice_tensor = torch.LongTensor(indices)
 
-
+    
+    start_time = time.time()
+    res = array_tensor[indice_tensor]
+    print(f"torch consumed {time.time() - start_time}, res shape {res.shape}")
 
 test_array_slice()
