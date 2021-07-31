@@ -29,9 +29,8 @@ def long_2d_array_slice(np.ndarray[np.int64_t, ndim=2] array, np.ndarray[np.int6
     cdef Py_ssize_t index
     cdef long long row
     cdef Py_ssize_t col
-
     with nogil:
-        for index in prange(total_indices, num_threads=16):
+        for index in prange(total_indices, schedule="static", chunksize=30):
             row = indices_view[index]
             res_view[index, :] = array_view[row, :]
     print(openmp.omp_get_num_threads())
