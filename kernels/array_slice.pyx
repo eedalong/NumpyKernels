@@ -14,7 +14,6 @@ import time
 
 from cython.parallel cimport prange
 cimport openmp
-openmp.omp_set_num_threads(32)
 @cython.boundscheck(False)
 @cython.wraparound(False)
 def long_2d_array_slice(np.ndarray[np.int64_t, ndim=2] array, np.ndarray[np.int64_t, ndim=1] indices):
