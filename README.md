@@ -15,14 +15,23 @@ Cython Kernels For Some Numpy Operations
 ## Array Pad
 [test_script is here, check this out](tests/test_pad.py)
 
+*Case 1*
+
 |Implementation|Thread|Performance|
 |---|---|---|
 |Numpy|1|182ms|
 |Pytorch|\> 1|45ms|
 |Our Kernel|\> 1|62ms|
 
+*Case 2*
+
+|Implementation|Thread|Performance|
+|---|---|---|
+|Numpy|1|261ms|
+|Pytorch|\> 1|42ms|
+|Our Kernel|\> 1|54ms|
 
 # Install
 
-    python setup.py build_ext --inplace
+    // python setup.py build_ext --inplace
     python setup.py install
