@@ -34,6 +34,11 @@ Cython Kernels For Some Numpy Operations.
 |Pytorch|\> 1|42ms|
 |Our Kernel|\> 1|54ms|
 
+## Comming Soon
+
+-[ ] Parallel Graph Sampling Kernel In Cython
+
+
 # Install
 
     // python setup.py build_ext --inplace

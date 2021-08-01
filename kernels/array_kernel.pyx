@@ -8,15 +8,10 @@ from libcpp.vector cimport vector
 from libc.stdlib cimport rand, RAND_MAX
 from cython.parallel cimport prange
 
-from multiprocessing import cpu_count
-
-cdef long long CPU_COUNT = cpu_count()
-
-
-cdef min_value(long long a, long long b):
-    if a < b:
-        return a
-    return b
+cdef extern from "<random>" namespace "std":
+   cdef cppclass mt19937:
+      mt19937() except +
+      mt19937(unsigned int) except +
 
 @cython.boundscheck(False)
 @cython.wraparound(False)
@@ -70,6 +65,20 @@ def long_2d_array_col_copy(np.ndarray[np.int64_t, ndim=2] target_array, np.ndarr
             target_view[row, :] = source_view[row, :]
     return target_array
 
+
+#TODO: COMMING SOON
+'''
+@cython.boundscheck(False)
+@cython.wraparound(False)
+def neighbor_sampling(np.ndarray[np.int64_t, ndim=1] csr_row, np.ndarray[np.int64_t, ndim=1] csr_col,
+                      np.ndarray[np.int64_t, ndim=1] seeds, long long neighbors, bool replace=False):
+    pass
+
+@cython.boundscheck(False)
+@cython.wraparound(False)
+cdef select_index():
+    pass
+'''
 
 
 
