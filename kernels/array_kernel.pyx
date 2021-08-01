@@ -40,7 +40,7 @@ def long_2d_array_row_copy(np.ndarray[np.int64_t, ndim=2] target_array, np.ndarr
     cdef long long row
     cdef Py_ssize_t col
     with nogil:
-        for row in prange(total_count, schedule="static", chunksize=30):
+        for row in prange(total_count, schedule="static", chunksize=1):
             target_view[row, :length] = source_view[row, :]
     return target_array
 
