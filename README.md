@@ -12,7 +12,14 @@ Cython Kernels For Some Numpy Operations
 |Our Kernel|1|440ms|
 |Our Kernel|\> 1|75ms|
 
+## Array Pad
+[test_script is here, check this out](tests/test_pad.py)
 
+|Implementation|Thread|Performance|
+|---|---|---|
+|Numpy|1|182ms|
+|Pytorch|\> 1|45ms|
+|Our Kernel|\> 1|62ms|
 
 
 
