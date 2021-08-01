@@ -54,6 +54,7 @@ setup(
     name="npkernel",
     description='Cython Kernels For Numpy Operations',
     version="1.0.0",
+    author=["yuanxiulong@mails.tsinghua.edu.cn"]
     long_description="NULL",
     long_description_content_type='text/markdown',
     url="https://github.com/eedalong/NumpyKernels",
