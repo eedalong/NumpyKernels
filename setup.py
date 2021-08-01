@@ -36,7 +36,9 @@ if sys.platform == "darwin":
 extensions = [
     Extension(
         "npkernel.kernels",
-        ["kernels/array_slice.pyx", "kernels/array_pad.pyx"],
+        ["kernels/array_kernel.pyx"],
+        
+        #["kernels/array_pad.pyx"],
         language="c++",
         extra_compile_args=compile_extra_args,
         extra_link_args=link_extra_args, ),
