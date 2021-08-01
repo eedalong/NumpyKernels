@@ -8,6 +8,15 @@ from libcpp.vector cimport vector
 from libc.stdlib cimport rand, RAND_MAX
 from cython.parallel cimport prange
 
+from multiprocessing import cpu_count
+
+cdef long long CPU_COUNT = cpu_count()
+
+
+cdef min_value(long long a, long long b):
+    if a < b:
+        return a
+    return b
 
 @cython.boundscheck(False)
 @cython.wraparound(False)
@@ -24,7 +33,7 @@ def long_2d_array_slice(np.ndarray[np.int64_t, ndim=2] array, np.ndarray[np.int6
     cdef long long row
     cdef Py_ssize_t col
     with nogil:
-        for index in prange(total_indices, schedule="static", chunksize=30):
+        for index in prange(total_indices, schedule="static"):
             row = indices_view[index]
             res_view[index, :] = array_view[row, :]
     return res
@@ -39,8 +48,9 @@ def long_2d_array_row_copy(np.ndarray[np.int64_t, ndim=2] target_array, np.ndarr
     cdef Py_ssize_t index
     cdef long long row
     cdef Py_ssize_t col
+
     with nogil:
-        for row in prange(total_count, schedule="static", chunksize=1):
+        for row in prange(total_count, schedule="static"):
             target_view[row, :length] = source_view[row, :]
     return target_array
 
@@ -54,8 +64,9 @@ def long_2d_array_col_copy(np.ndarray[np.int64_t, ndim=2] target_array, np.ndarr
     cdef Py_ssize_t index
     cdef long long row
     cdef Py_ssize_t col
+
     with nogil:
-        for row in prange(total_count, schedule="static", chunksize=30):
+        for row in prange(total_count, schedule="static"):
             target_view[row, :] = source_view[row, :]
     return target_array
 
