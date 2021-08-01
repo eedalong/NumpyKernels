@@ -2,7 +2,7 @@
 Cython Kernels For Some Numpy Operations
 
 ## Array Slice
-[test_script is here, check this out](tests/test.py)
+[test_script is here, check this out](tests/test_slice.py)
 
 |Implementation|Thread|Performance|
 |---|---|---|
