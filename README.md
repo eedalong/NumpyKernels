@@ -33,5 +33,5 @@ Cython Kernels For Some Numpy Operations
 
 # Install
 
-    python setup.py build_ext --inplace
+    // python setup.py build_ext --inplace
     python setup.py install
