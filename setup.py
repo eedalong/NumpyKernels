@@ -26,7 +26,7 @@ class CustomBuildExt(_build_ext):
         import numpy
         self.include_dirs.append(numpy.get_include())
 
-compile_extra_args = ["-std=c++11", "-fopenmp"]
+compile_extra_args = ["-std=c++11", "-O3", "-fopenmp"]
 link_extra_args = ["-fopenmp"]
 
 if sys.platform == "darwin":
