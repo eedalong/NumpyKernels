@@ -1,5 +1,8 @@
 # NumpyKernels
-Cython Kernels For Some Numpy Operations
+Cython Kernels For Some Numpy Operations. 
+
+最近工作上有很多需要用到Numpy的地方，Profiling之后发现Numpy的访存操作真的太慢了，严重影响了我们的系统性能，于是我用Cython写了一些Kernel来加速这些访存操作，
+如下是Kernel的Profling结果。可以发现Pytroch Tensor实现真的很高效，以及我们的kernel相比较Numpy的原生操作也的确快不少。
 
 ## Array Slice
 [test_script is here, check this out](tests/test_slice.py)
